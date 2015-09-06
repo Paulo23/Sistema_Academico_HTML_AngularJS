@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html lang="pt-Br">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Sistema Acadêmico</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+
+	<form>
+
+		<div class="form-group">
+			<label>Matrícula</label>
+			<input type="text" name="matricula" class="form-control" ng-model=
+			"aluno.matricula">
+
+			<label>Nome do aluno</label>
+			<input type="text" name="nome" class="form-control" ng-model=
+			"aluno.nome">
+
+			<label>Turma</label>
+			<select name="turma" class="form-control" ng-model=
+			"aluno.turma">
+				<option value="{{turma.valor}}" ng-repeat="turma in listaTurmas">{{turma.valor}}
+				</option>			
+			</select>
+		</div>
+
+		<button ng-click="salvar()" type="button" class="btn btn-info">Salvar
+		</button>
+
+	</form>
+			</div>
+
+	<div class="col-md-4">
+
+	<table ng-hide="listaAlunos.length == 0">
+		<thead>
+			<tr>
+				<th>Matrícula</th>
+				<th>Nome do aluno</th>
+			</tr>	
+		</thead>	
+		<tbody>
+			<tr ng-repeat="aluno in listaAlunos">			
+				<td>					
+					<input type="text" ng-model="aluno.matricula" size="8">
+				</td>	
+				<td>
+					<input type="text" ng-model="aluno.nome" size="30">
+				</td>
+				<td>
+					<input type="text" ng-model="aluno.turma" size="30">
+				</td>
+				<td>					
+					<button ng-click="remover(aluno)">Remover</button>					
+				</td>
+			</tr>
+		</tbody>
+	</table> 	
+	</div>
+	</div>
+	</div>
+	
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+
+<html lang="pt-Br">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Sistema Acadêmico</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+
+	<form>
+
+		<div class="form-group">
+			<label>Semestre</label>
+			<select name="semestre" ng-model="turma.semestre" class=
+			"form-control">
+				<option value="{{semestre.valor}}" ng-repeat="semestre in listaSemestres"> {{semestre.valor}}
+				</option> 
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Disciplina</label>
+			<select name="disciplina" ng-model="turma.disciplina" class="form-control">
+				<option value="{{disciplina.codigo}} - {{disciplina.nome}}" ng-repeat="disciplina in listaDisciplinas"> {{disciplina.codigo}} - {{disciplina.nome}}
+				</option>
+			</select>
+		</div>
+
+		<button ng-click="salvar()" type="button" class="btn btn-info">Salvar
+		</button>
+
+	</form>
+			</div>
+
+	<div class="col-md-4">
+
+	<table ng-hide="listaDisciplinas.length == 0">
+		<thead>
+			<tr>
+				<th>Semestre</th>
+				<th>Disciplina</th>
+			</tr>	
+		</thead>	
+		<tbody>
+			<tr ng-repeat="turma in listaTurmas">			
+				<td>					
+					<input type="text" ng-model="turma.semestre" size="5">
+				</td>	
+				<td>
+					<input type="text" ng-model="turma.disciplina" size="30">
+				</td>
+				<td>					
+					<button ng-click="remover(turma)">Remover</button>					
+				</td>
+			</tr>
+		</tbody>
+	</table> 	
+	</div>
+	</div>
+	</div>
+	
+</body>
+
+</html>

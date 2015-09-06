@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html lang="pt-Br">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Sistema Acadêmico</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+
+	<form>
+
+		<div class="form-group">
+			<label>Código</label>
+			<input type="text" name="codigo" class="form-control" ng-model=
+			"disciplina.codigo">
+
+			<label>Nome da disciplina</label>
+			<input type="text" name="nome da disciplina" class="form-control" ng-model=
+			"disciplina.nome">
+		</div>
+
+		<button ng-click="salvar()" type="button" class="btn btn-info">Salvar
+		</button>
+
+	</form>
+			</div>
+
+	<div class="col-md-4">
+
+	<table ng-hide="listaDisciplinas.length == 0">
+		<thead>
+			<tr>
+				<th>Código</th>
+				<th>Nome da disciplina</th>
+			</tr>	
+		</thead>	
+		<tbody>
+			<tr ng-repeat="disciplina in listaDisciplinas">			
+				<td>					
+					<input type="text" ng-model="disciplina.codigo" size="5">
+				</td>	
+				<td>
+					<input type="text" ng-model="disciplina.nome" size="30">
+				</td>
+				<td>					
+					<button ng-click="remover(disciplina)">Remover</button>					
+				</td>
+			</tr>
+		</tbody>
+	</table> 	
+	</div>
+	</div>
+	</div>
+	
+</body>
+
+</html>
